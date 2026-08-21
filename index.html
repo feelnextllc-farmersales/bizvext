@@ -421,6 +421,203 @@
     .compare-table{ min-width: 560px; }
   }
 
+  /* ---------- DATA VISUAL ---------- */
+  .data-visual{ background: var(--white); }
+  .data-visual .section-head{ margin-bottom: 56px; }
+
+  .graph-block{
+    max-width: 640px;
+    margin: 0 auto 72px;
+  }
+  .graph-block:last-of-type{ margin-bottom: 0; }
+  .graph-step{
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .graph-title{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .graph-chart{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .bar-row{
+    display: grid;
+    grid-template-columns: 108px 1fr 68px;
+    align-items: center;
+    gap: 12px;
+  }
+  .bar-row--lead .bar-label{ font-weight: 700; color: var(--navy-deep); }
+  .bar-row--lead .bar-value{ font-weight: 800; color: var(--teal); font-size: 15px; }
+  .bar-label{
+    font-size: 12.5px;
+    color: var(--text-gray);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .bar-track{
+    position: relative;
+    height: 12px;
+    background: var(--bg);
+    border-radius: 100px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .bar-fill{
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    border-radius: 100px;
+    background: var(--teal);
+    opacity: 0.55;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s ease;
+  }
+  .bar-fill--lead{ background: var(--teal); opacity: 1; }
+  .bar-fill.is-visible{ transform: scaleX(1); }
+  .bar-value{
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--navy);
+    text-align: right;
+  }
+
+  .contrast-pair{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 8px 0 28px;
+    flex-wrap: wrap;
+  }
+  .contrast-card{
+    text-align: center;
+    padding: 18px 26px;
+    border-radius: var(--radius-sm);
+    min-width: 150px;
+  }
+  .contrast-card--main{
+    background: var(--teal-light);
+    border: 1px solid var(--teal);
+  }
+  .contrast-card--sub{
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .contrast-num{
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--teal);
+    line-height: 1.2;
+  }
+  .contrast-card--sub .contrast-num{ color: var(--text-gray); }
+  .contrast-label{
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .contrast-sep{
+    font-size: 13px;
+    color: var(--text-gray);
+    font-weight: 700;
+  }
+
+  .graph-message{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    line-height: 1.9;
+    margin-bottom: 22px;
+  }
+
+  .graph-cta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px 22px;
+    text-align: left;
+  }
+  .graph-cta-text{ flex: 1; min-width: 160px; }
+  .graph-cta-tag{
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 2px;
+  }
+  .graph-cta-name{
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--navy-deep);
+  }
+  .graph-cta-meta{
+    margin-top: 2px;
+    font-size: 12.5px;
+    color: var(--text-gray);
+  }
+
+  .graph-source{
+    margin-top: 14px;
+    text-align: center;
+    font-size: 11.5px;
+    color: #9aa6a4;
+    line-height: 1.7;
+  }
+
+  .data-next{
+    text-align: center;
+    margin-top: 8px;
+  }
+  .data-next-link{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-gray);
+  }
+  .data-next-link .down-arrow{
+    font-size: 18px;
+    color: var(--teal);
+    animation: bob 1.8s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%, 100%{ transform: translateY(0); }
+    50%{ transform: translateY(5px); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .data-next-link .down-arrow{ animation: none; }
+  }
+
+  @media (max-width: 600px){
+    .bar-row{
+      grid-template-columns: 1fr;
+      row-gap: 6px;
+    }
+    .bar-value{ text-align: left; }
+    .contrast-pair{ gap: 12px; }
+    .contrast-card{ min-width: 130px; padding: 14px 18px; }
+    .contrast-num{ font-size: 24px; }
+  }
+
   /* ---------- FAQ ---------- */
   .faq-list{
     max-width: 720px;
@@ -511,6 +708,19 @@
     line-height: 1.95;
   }
   .service-card .btn{ margin-top: 26px; }
+  .service-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .service-meta-item{
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+  }
 
   /* ---------- For whom ---------- */
   .whom-grid{
@@ -859,6 +1069,125 @@
     </div>
   </section>
 
+  <!-- DATA VISUAL -->
+  <section class="data-visual" id="data-visual">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="section-title">経営の現在地から、次の一手へ。</h2>
+        <p class="section-sub">公的な統計から見える経営の現在地。<br>そこから、次に考えるべきことを整理します。</p>
+      </div>
+
+      <!-- GRAPH 01 -->
+      <div class="graph-block reveal">
+        <p class="graph-step">STEP 01｜課題がある</p>
+        <h3 class="graph-title">経営課題は、すでに存在している。</h3>
+
+        <div class="graph-chart">
+          <div class="bar-row bar-row--lead">
+            <div class="bar-label">受注・販売の拡大</div>
+            <div class="bar-track"><div class="bar-fill bar-fill--lead" style="width:80%"></div></div>
+            <div class="bar-value">約40%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">人材確保</div>
+            <div class="bar-track"><div class="bar-fill" style="width:32%"></div></div>
+            <div class="bar-value">2割以下</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">価格転嫁</div>
+            <div class="bar-track"><div class="bar-fill" style="width:26%"></div></div>
+            <div class="bar-value">2割以下</div>
+          </div>
+        </div>
+
+        <p class="graph-message">課題があることより、<br>「何から始めるか」が重要です。</p>
+
+        <a class="graph-cta" id="graph1-restep" href="#">
+          <div class="graph-cta-text">
+            <p class="graph-cta-tag">今を整える</p>
+            <p class="graph-cta-name">RE:STEP</p>
+            <p class="graph-cta-meta">3,980円〜 / 1回</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <p class="graph-source">出典：2025年版 小規模企業白書（第2-1-9図）／小規模事業者では他の経営課題の回答割合が2割以下の中、「受注・販売の拡大」が約4割。<br>※掲載データをもとにBizVext作成</p>
+      </div>
+
+      <!-- GRAPH 02 -->
+      <div class="graph-block reveal">
+        <p class="graph-step">STEP 02｜現在地を整理する</p>
+        <h3 class="graph-title">経営を整理すること自体が、まだ十分に行われていない。</h3>
+
+        <div class="contrast-pair">
+          <div class="contrast-card contrast-card--main">
+            <p class="contrast-num">19.9%</p>
+            <p class="contrast-label">経営計画を<br>策定している</p>
+          </div>
+          <span class="contrast-sep">対</span>
+          <div class="contrast-card contrast-card--sub">
+            <p class="contrast-num">80.1%</p>
+            <p class="contrast-label">策定して<br>いない</p>
+          </div>
+        </div>
+
+        <div class="graph-chart">
+          <div class="bar-row">
+            <div class="bar-label">原価管理</div>
+            <div class="bar-track"><div class="bar-fill" style="width:67.8%"></div></div>
+            <div class="bar-value">67.8%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">労務管理</div>
+            <div class="bar-track"><div class="bar-fill" style="width:70.5%"></div></div>
+            <div class="bar-value">70.5%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">品質管理</div>
+            <div class="bar-track"><div class="bar-fill" style="width:69.3%"></div></div>
+            <div class="bar-value">69.3%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">マーケティング</div>
+            <div class="bar-track"><div class="bar-fill" style="width:60.6%"></div></div>
+            <div class="bar-value">60.6%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">ノウハウの蓄積・共有</div>
+            <div class="bar-track"><div class="bar-fill" style="width:48.8%"></div></div>
+            <div class="bar-value">48.8%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">組織活性化</div>
+            <div class="bar-track"><div class="bar-fill" style="width:41.4%"></div></div>
+            <div class="bar-value">41.4%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">資金繰り計画</div>
+            <div class="bar-track"><div class="bar-fill" style="width:24.6%"></div></div>
+            <div class="bar-value">24.6%</div>
+          </div>
+          <div class="bar-row bar-row--lead">
+            <div class="bar-label">経営計画の策定</div>
+            <div class="bar-track"><div class="bar-fill bar-fill--lead" style="width:19.9%"></div></div>
+            <div class="bar-value">19.9%</div>
+          </div>
+        </div>
+
+        <p class="graph-message">大きな計画をつくる前に、<br>まず現在地を整理する。</p>
+
+        <div class="data-next">
+          <a class="data-next-link" href="#choice">
+            <span>BizVextで、自分に合った整理の仕方を見る</span>
+            <span class="down-arrow">↓</span>
+          </a>
+        </div>
+
+        <p class="graph-source">出典：2026年版 中小企業白書・小規模企業白書（経営リテラシー4分野の取組状況）<br>※掲載データをもとにBizVext作成</p>
+      </div>
+    </div>
+  </section>
+
   <!-- COMPARE -->
   <section class="compare">
     <div class="wrap">
@@ -950,6 +1279,10 @@
           <h3>RE:STEP</h3>
           <p class="catch">現状課題の発見と改善方法の取得</p>
           <p>業務・人・時間・コストなどを整理し、「どこに問題があるのか」「何から改善すべきなのか」を可視化します。</p>
+          <div class="service-meta">
+            <span class="service-meta-item">目安時間　約10分〜</span>
+            <span class="service-meta-item">3,980円〜 / 1回</span>
+          </div>
           <a class="btn btn-outline" id="link-restep-1" href="#">RE:STEPの詳細を見る <span class="arrow">→</span></a>
         </div>
 
@@ -957,9 +1290,14 @@
           <h3>Seize</h3>
           <p class="catch">次の可能性を設計する</p>
           <p>自社の強み・経営資源・市場などから、新しい事業や事業展開の可能性を整理します。</p>
+          <div class="service-meta">
+            <span class="service-meta-item">目安時間　約10分〜</span>
+            <span class="service-meta-item">2,980円〜 / 1回</span>
+          </div>
           <a class="btn btn-outline" id="link-seize-1" href="#">Seizeの詳細を見る <span class="arrow">→</span></a>
         </div>
       </div>
+      <p class="compare-note reveal" style="margin-top:20px;">※目安時間はご利用内容により前後します。成果や効果をお約束するものではありません。</p>
     </div>
   </section>
 
@@ -1136,11 +1474,11 @@
 <script>
   // すべてのRE:STEP / Seizeリンクはここを変更するだけで一括更新できます
   const LINKS = {
-    restep: "https://feelnextllc-farmersales.github.io/re-step-lp/",
-    seize: "https://feelnextllc-farmersales.github.io/seize-lp/"
+    restep: "#",
+    seize: "#"
   };
 
-  document.querySelectorAll('#nav-restep, #cta-restep, #card-restep, #link-restep-1, #final-restep, #footer-restep')
+  document.querySelectorAll('#nav-restep, #cta-restep, #card-restep, #link-restep-1, #final-restep, #footer-restep, #graph1-restep')
     .forEach(el => { if (el) el.href = LINKS.restep; });
 
   document.querySelectorAll('#nav-seize, #cta-seize, #card-seize, #link-seize-1, #final-seize, #footer-seize')
@@ -1157,9 +1495,9 @@
       });
     }, { threshold: 0.12 });
 
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    document.querySelectorAll('.reveal, .bar-fill').forEach(el => io.observe(el));
   } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+    document.querySelectorAll('.reveal, .bar-fill').forEach(el => el.classList.add('is-visible'));
   }
 
   // 運営会社モーダル
