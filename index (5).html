@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon: シンプルなブランドマーク（差し替える場合は favicon.ico や favicon.png を用意し、下記リンクのhref/typeを変更してください） -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D202C'/%3E%3Cpath d='M20 44V20h13.5c5 0 8.5 2.6 8.5 7 0 3-1.6 5-4 6 2.9 1 4.8 3.2 4.8 6.5 0 5-3.7 7.7-9 7.7H20z' fill='%231D7772'/%3E%3Cpath d='M25.5 25v6h7c2.3 0 3.7-1.1 3.7-3s-1.4-3-3.7-3h-7zm0 11v7.2h8c2.7 0 4.3-1.3 4.3-3.6 0-2.3-1.6-3.6-4.3-3.6h-8z' fill='%23F7F9F8'/%3E%3C/svg%3E">
+
+<title>BizVext｜今を整え、次をつくる。</title>
+<meta name="description" content="BizVextは、経営の現在地を整理し、その先の可能性を設計する事業支援サービスです。RE:STEPとSeizeを通じて、改善から新しい事業の可能性まで整理します。">
+
+<!-- OGP -->
+<!-- og:image は og-image.png（推奨サイズ 1200x630）をindex.htmlと同じ階層に配置すると自動的に反映されます -->
+<meta property="og:title" content="BizVext｜今を整え、次をつくる。">
+<meta property="og:description" content="経営の現在地を整理し、その先の可能性を設計する。RE:STEPとSeize、2つの事業支援サービスへの入口。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BizVext">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="./og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BizVext｜今を整え、次をつくる。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BizVext｜今を整え、次をつくる。">
+<meta name="twitter:description" content="経営の現在地を整理し、その先の可能性を設計する。">
+<meta name="twitter:image" content="./og-image.png">
+
+<style>
+  :root{
+    --bg:#F7F9F8;
+    --white:#FFFFFF;
+    --navy:#132B3A;
+    --navy-deep:#0D202C;
+    --teal:#1D7772;
+    --teal-light:#E8F3F1;
+    --text-gray:#52616B;
+    --border:#DDE5E3;
+
+    --font: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+
+    --container: 1120px;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--navy);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img, svg{ display:block; max-width:100%; }
+  a{ color: inherit; text-decoration: none; }
+  ul{ list-style:none; }
+  button{ font-family: inherit; }
+
+  a:focus-visible,
+  button:focus-visible,
+  .card:focus-visible{
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .wrap{
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    background: var(--teal-light);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+
+  .section-title{
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--navy-deep);
+  }
+
+  .section-sub{
+    margin-top: 10px;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .section-head{
+    text-align:center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+
+  section{ padding: 84px 0; }
+
+  /* ---------- Header ---------- */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,249,248,0.86);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height: 68px;
+  }
+  .logo{
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    color: var(--navy-deep);
+  }
+  .logo span{ color: var(--teal); }
+
+  nav.main-nav{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+  }
+  .nav-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    padding: 9px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    white-space: nowrap;
+  }
+  .nav-link:hover{
+    border-color: var(--teal);
+    background: var(--teal-light);
+    transform: translateY(-1px);
+  }
+  .nav-link.seize-link:hover{ border-color: var(--navy); background: var(--white); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 88px 0 72px;
+    text-align:center;
+  }
+  .hero-mark{
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--teal);
+    margin-bottom: 22px;
+  }
+  .hero h1{
+    font-size: clamp(32px, 7vw, 54px);
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--navy-deep);
+    letter-spacing: 0.01em;
+  }
+  .hero-lead{
+    margin-top: 26px;
+    font-size: clamp(15px, 2.4vw, 18px);
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.9;
+  }
+  .hero-desc{
+    margin: 22px auto 0;
+    max-width: 520px;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 2;
+  }
+  .hero-cta{
+    margin-top: 44px;
+    display:flex;
+    justify-content:center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 15px 28px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    min-height: 48px;
+  }
+  .btn-primary{
+    background: var(--navy-deep);
+    color: var(--white);
+  }
+  .btn-primary:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(13,32,44,0.22);
+  }
+  .btn-outline{
+    background: var(--white);
+    color: var(--navy-deep);
+    border-color: var(--border);
+  }
+  .btn-outline:hover{
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(29,119,114,0.14);
+  }
+  .btn .arrow{ transition: transform .18s ease; }
+  .btn:hover .arrow{ transform: translateX(4px); }
+
+  /* ---------- Choice section ---------- */
+  .choice{ background: var(--white); }
+  .choice-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .choice-card{
+    display:block;
+    position: relative;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .choice-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(13,32,44,0.10);
+    border-color: var(--teal);
+  }
+  .choice-tag{
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+  .choice-card h3{
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    margin-bottom: 18px;
+  }
+  .choice-card ul{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+  .choice-card li{
+    font-size: 14px;
+    color: var(--text-gray);
+    padding-left: 18px;
+    position: relative;
+  }
+  .choice-card li::before{
+    content:"";
+    position:absolute;
+    left:0; top:9px;
+    width:6px; height:6px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+  .choice-service{
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+  }
+  .choice-service .name{
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy-deep);
+  }
+  .choice-service .desc{
+    margin-top: 8px;
+    font-size: 13.5px;
+    color: var(--text-gray);
+    line-height: 1.85;
+  }
+  .choice-cta{
+    margin-top: 20px;
+    display:inline-flex;
+    align-items:center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy-deep);
+  }
+  .choice-cta .arrow{ transition: transform .18s ease; }
+  .choice-card:hover .choice-cta .arrow{ transform: translateX(5px); }
+
+  /* ---------- Philosophy / flow ---------- */
+  .philosophy{ text-align:center; }
+  .flow{
+    max-width: 420px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+  }
+  .flow-step{
+    width: 100%;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 20px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .flow-arrow{
+    color: var(--teal);
+    font-size: 18px;
+    line-height: 1;
+    margin: 8px 0;
+  }
+  .flow-both{
+    margin-top: 40px;
+    display:inline-flex;
+    align-items:center;
+    gap: 14px;
+    padding: 14px 26px;
+    background: var(--teal-light);
+    border-radius: 100px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    font-size: 14.5px;
+  }
+  .flow-both .divider{ color: var(--teal); font-weight: 800; }
+  .philosophy-note{
+    max-width: 480px;
+    margin: 0 auto 44px;
+    color: var(--text-gray);
+    font-size: 14.5px;
+  }
+
+  /* ---------- Services ---------- */
+  .services{ background: var(--white); }
+
+  /* ---------- Compare ---------- */
+  .compare-table-wrap{
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    -webkit-overflow-scrolling: touch;
+  }
+  .compare-table{
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+  }
+  .compare-table caption{
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .compare-table th,
+  .compare-table td{
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .compare-table tr:last-child th,
+  .compare-table tr:last-child td{ border-bottom: none; }
+  .compare-table thead th{
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-gray);
+    background: var(--bg);
+  }
+  .compare-table thead th.col-restep,
+  .compare-table thead th.col-seize{
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .compare-table thead th.col-restep{ color: var(--teal); }
+  .compare-table thead th.col-seize{ color: var(--navy-deep); }
+  .compare-table tbody th{
+    width: 130px;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--bg);
+    white-space: nowrap;
+  }
+  .compare-table tbody td{ color: var(--navy); font-weight: 500; }
+  .compare-note{
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-gray);
+  }
+  @media (max-width: 760px){
+    .compare-table{ min-width: 560px; }
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    max-width: 720px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .faq-item{
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .faq-question{
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 16px;
+    text-align:left;
+    background: none;
+    border: none;
+    padding: 20px 22px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    cursor: pointer;
+  }
+  .faq-question .faq-icon{
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    color: var(--teal);
+    font-size: 14px;
+    font-weight: 700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .faq-item[data-open="true"] .faq-icon{
+    transform: rotate(45deg);
+    background: var(--teal-light);
+  }
+  .faq-answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s ease;
+  }
+  .faq-answer-inner{
+    padding: 0 22px 20px;
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.9;
+  }
+  .faq-answer-inner strong{
+    color: var(--navy-deep);
+    font-weight: 700;
+  }
+  .service-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .service-card{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    background: var(--bg);
+  }
+  .service-card h3{
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy-deep);
+  }
+  .service-card .catch{
+    margin-top: 10px;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--teal);
+  }
+  .service-card p{
+    margin-top: 18px;
+    font-size: 14.5px;
+    color: var(--text-gray);
+    line-height: 1.95;
+  }
+  .service-card .btn{ margin-top: 26px; }
+
+  /* ---------- For whom ---------- */
+  .whom-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .whom-card{
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 24px 22px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.8;
+  }
+  .whom-num{
+    display:inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--teal);
+    background: var(--teal-light);
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    text-align:center;
+    line-height: 24px;
+    margin-bottom: 14px;
+  }
+  .whom-emphasis{
+    margin-top: 40px;
+    text-align:center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    background: var(--teal-light);
+    border-radius: var(--radius-sm);
+    padding: 22px;
+  }
+
+  /* ---------- Features ---------- */
+  .features{ background: var(--white); }
+  .feature-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .feature-card{
+    padding: 8px;
+  }
+  .feature-num{
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--teal);
+    opacity: 0.35;
+    margin-bottom: 14px;
+  }
+  .feature-card h3{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    margin-bottom: 10px;
+  }
+  .feature-card p{
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.9;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{
+    text-align:center;
+    padding: 100px 0 110px;
+  }
+  .final-cta h2{
+    font-size: clamp(24px, 5vw, 34px);
+    font-weight: 800;
+    color: var(--navy-deep);
+    line-height: 1.6;
+  }
+  .final-cta p{
+    margin-top: 18px;
+    color: var(--text-gray);
+    font-size: 15px;
+  }
+  .final-cta .hero-cta{ margin-top: 36px; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--navy-deep);
+    color: #C9D6D9;
+    padding: 56px 0 32px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .footer-logo{
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+  }
+  .footer-logo span{ color: #6FC7BE; }
+  .footer-tag{
+    margin-top: 12px;
+    font-size: 13px;
+    color: #9DB0B5;
+  }
+  .footer-tag.strong{
+    margin-top: 6px;
+    color: #C9D6D9;
+    font-weight: 600;
+  }
+  .footer-links{
+    display:flex;
+    gap: 28px;
+    align-self: flex-start;
+  }
+  .footer-links a{
+    font-size: 14px;
+    font-weight: 600;
+    color: #C9D6D9;
+    transition: color .18s ease;
+  }
+  .footer-links a:hover{ color: #6FC7BE; }
+  .footer-bottom{
+    margin-top: 24px;
+    display:flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12.5px;
+    color: #7C9296;
+  }
+  .footer-legal-links{
+    display:flex;
+    align-items:center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .footer-company-btn{
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #9DB0B5;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color .18s ease;
+  }
+  .footer-company-btn:hover{ color: #6FC7BE; }
+
+  /* ---------- Company info modal ---------- */
+  .modal-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(13,32,44,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 200;
+  }
+  .modal-overlay.is-open{ display: flex; }
+  .modal-box{
+    background: var(--white);
+    border-radius: var(--radius);
+    max-width: 460px;
+    width: 100%;
+    padding: 32px 28px;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(13,32,44,0.28);
+  }
+  .modal-close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--navy);
+    cursor: pointer;
+    transition: border-color .18s ease, background .18s ease;
+  }
+  .modal-close:hover{ border-color: var(--teal); background: var(--teal-light); }
+  .modal-box h2{
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy-deep);
+    margin-bottom: 20px;
+  }
+  .modal-table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .modal-table th,
+  .modal-table td{
+    text-align: left;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    vertical-align: top;
+  }
+  .modal-table tr:last-child th,
+  .modal-table tr:last-child td{ border-bottom: none; }
+  .modal-table th{
+    width: 110px;
+    font-weight: 700;
+    color: var(--text-gray);
+    white-space: nowrap;
+  }
+  .modal-table td{
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .modal-table td a{
+    color: var(--teal);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 480px){
+    .modal-table th{ width: 92px; }
+  }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior: auto; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 760px){
+    section{ padding: 64px 0; }
+    .hero{ padding: 56px 0 48px; }
+    .header-inner{ height: 60px; }
+    .logo{ font-size: 16px; }
+    .nav-link{ padding: 8px 13px; font-size: 13px; }
+    .choice-grid,
+    .service-grid{ grid-template-columns: 1fr; }
+    .whom-grid{ grid-template-columns: 1fr 1fr; }
+    .feature-grid{ grid-template-columns: 1fr; gap: 32px; }
+    .hero-cta,
+    .final-cta .hero-cta{ flex-direction: column; align-items: stretch; }
+    .btn{ justify-content:center; }
+    .footer-top{ flex-direction: column; }
+    .footer-links{ gap: 20px; }
+  }
+
+  @media (max-width: 420px){
+    .whom-grid{ grid-template-columns: 1fr; }
+    .wrap{ padding: 0 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <div class="logo">Biz<span>Vext</span></div>
+    <nav class="main-nav" aria-label="サービスへのリンク">
+      <a class="nav-link" id="nav-restep" href="#" target="_self">RE:STEP</a>
+      <a class="nav-link seize-link" id="nav-seize" href="#" target="_self">Seize</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero-mark">BizVext</p>
+      <h1>今を整え、<br>次をつくる。</h1>
+      <p class="hero-lead">経営の現在地を整理し、<br>その先の可能性を設計する。</p>
+      <p class="hero-desc">
+        経営には、「今、変えるべきこと」と「これから考えるべきこと」がある。<br>
+        BizVextは、その両方を整理するための事業支援サービスです。
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" id="cta-restep" href="#">今の課題を見つける <span class="arrow">→</span></a>
+        <a class="btn btn-outline" id="cta-seize" href="#">次の可能性を考える <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHOICE -->
+  <section class="choice" id="choice">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="section-title">あなたは今、どちらですか？</h2>
+        <p class="section-sub">今を整える。それとも、次をつくる。</p>
+      </div>
+
+      <div class="choice-grid">
+        <a class="choice-card reveal" id="card-restep" href="#" aria-label="RE:STEPを見る">
+          <p class="choice-tag">今の仕事を改善したい</p>
+          <h3>業務の課題を整理したい方へ</h3>
+          <ul>
+            <li>業務のムダや問題を整理したい</li>
+            <li>何から改善すべきか知りたい</li>
+            <li>現状の課題を整理したい</li>
+          </ul>
+          <div class="choice-service">
+            <p class="name">RE:STEP</p>
+            <p class="desc">現状課題の発見と<br>改善方法の取得</p>
+            <span class="choice-cta">RE:STEPを見る <span class="arrow">→</span></span>
+          </div>
+        </a>
+
+        <a class="choice-card reveal" id="card-seize" href="#" aria-label="Seizeを見る">
+          <p class="choice-tag">次の事業を考えたい</p>
+          <h3>新しい可能性を考えたい方へ</h3>
+          <ul>
+            <li>自社の強みを活かしたい</li>
+            <li>新しい事業を考えたい</li>
+            <li>今ある経営資源を活かしたい</li>
+          </ul>
+          <div class="choice-service">
+            <p class="name">Seize</p>
+            <p class="desc">自社の強み・資源から<br>次の事業可能性を発見・設計</p>
+            <span class="choice-cta">Seizeを見る <span class="arrow">→</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="compare">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="section-title">RE:STEPとSeize、何が違う？</h2>
+        <p class="section-sub">選ぶための、簡単な目安です。</p>
+      </div>
+
+      <div class="compare-table-wrap reveal">
+        <table class="compare-table">
+          <caption>RE:STEPとSeizeの比較</caption>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col" class="col-restep">RE:STEP</th>
+              <th scope="col" class="col-seize">Seize</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">対象</th>
+              <td>今の事業</td>
+              <td>次の事業</td>
+            </tr>
+            <tr>
+              <th scope="row">見るもの</th>
+              <td>課題・業務・改善</td>
+              <td>強み・資源・可能性</td>
+            </tr>
+            <tr>
+              <th scope="row">向いている状態</th>
+              <td>何を改善すればいいか分からない</td>
+              <td>新しい事業・展開を考えたい</td>
+            </tr>
+            <tr>
+              <th scope="row">ゴール</th>
+              <td>改善の方向性</td>
+              <td>次の事業可能性</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare-note reveal">どちらか一方から始めても構いません。迷ったら、今より気になる方をお選びください。</p>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="section-title">BizVextの考え方</h2>
+        <p class="section-sub">「整える」だけでもない。「新しく始める」だけでもない。</p>
+      </div>
+
+      <div class="flow reveal">
+        <div class="flow-step">現状を知る</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">課題を見つける</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">改善する</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">強み・資源を整理する</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">可能性を考える</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">次の一手へ</div>
+
+        <div class="flow-both">
+          RE:STEP <span class="divider">⇄</span> Seize
+        </div>
+      </div>
+      <p class="philosophy-note reveal" style="margin-top:28px;">
+        この流れは、経営を整理して次へ進むための一つの考え方です。<br>
+        必ずどちらかから始める必要はなく、どちらからでも利用できます。
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="section-title">2つのサービス</h2>
+        <p class="section-sub">今を整えるRE:STEP。次をつくるSeize。</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <h3>RE:STEP</h3>
+          <p class="catch">現状課題の発見と改善方法の取得</p>
+          <p>業務・人・時間・コストなどを整理し、「どこに問題があるのか」「何から改善すべきなのか」を可視化します。</p>
+          <a class="btn btn-outline" id="link-restep-1" href="#">RE:STEPの詳細を見る <span class="arrow">→</span></a>
+        </div>
+
+        <div class="service-card reveal">
+          <h3>Seize</h3>
+          <p class="catch">次の可能性を設計する</p>
+          <p>自社の強み・経営資源・市場などから、新しい事業や事業展開の可能性を整理します。</p>
+          <a class="btn btn-outline" id="link-seize-1" href="#">Seizeの詳細を見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="whom">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="section-title">こんな方へ</h2>
+      </div>
+
+      <div class="whom-grid">
+        <div class="whom-card reveal"><span class="whom-num">1</span>業務改善したいが、何から始めればいいか分からない</div>
+        <div class="whom-card reveal"><span class="whom-num">2</span>社内に改善すべきことが多すぎる</div>
+        <div class="whom-card reveal"><span class="whom-num">3</span>自社の強みを整理したい</div>
+        <div class="whom-card reveal"><span class="whom-num">4</span>新規事業を考えている</div>
+        <div class="whom-card reveal"><span class="whom-num">5</span>今ある経営資源をもっと活かしたい</div>
+        <div class="whom-card reveal"><span class="whom-num">6</span>第三者の視点で事業を整理したい</div>
+      </div>
+
+      <p class="whom-emphasis reveal">一つでも当てはまるなら、BizVextから始めてください。</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="section-title">BizVextが大切にする3つのこと</h2>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <p class="feature-num">01</p>
+          <h3>見える化</h3>
+          <p>頭の中にある課題や可能性を整理。</p>
+        </div>
+        <div class="feature-card reveal">
+          <p class="feature-num">02</p>
+          <h3>整理</h3>
+          <p>感覚だけに頼らず、一定の視点から分析。</p>
+        </div>
+        <div class="feature-card reveal">
+          <p class="feature-num">03</p>
+          <h3>次の一手</h3>
+          <p>分析だけで終わらず、次の行動につなげる。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="section-title">よくある質問</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-question" aria-expanded="false">
+            BizVextとは何ですか？
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              BizVextは、自分自身に分析・診断機能を持つサービスではありません。経営の現在地を整理し、<strong>RE:STEPとSeizeという2つのサービスへご案内するための入口サイト</strong>です。
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-question" aria-expanded="false">
+            RE:STEPとSeizeの違いは？
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              RE:STEPは<strong>今の事業の課題を見つけて改善する</strong>サービス、Seizeは<strong>自社の強みや資源から次の事業の可能性を考える</strong>サービスです。詳しくは上の比較表もご覧ください。
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-question" aria-expanded="false">
+            どちらから使えばいいですか？
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              決まった順番はありません。今の業務改善が気になる方はRE:STEPから、新しい事業の可能性を考えたい方はSeizeから始めてください。
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-question" aria-expanded="false">
+            両方使う必要がありますか？
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <strong>RE:STEPとSeizeは、それぞれ単独で利用できます。</strong>必要に応じて、どちらか一方だけをご利用いただくことも可能です。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="wrap">
+      <h2 class="reveal">今を整えますか？<br>それとも、次を考えますか？</h2>
+      <p class="reveal">BizVextから、今の経営に合った一歩を。</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary" id="final-restep" href="#">RE:STEP <span class="arrow">→</span></a>
+        <a class="btn btn-outline" id="final-seize" href="#">Seize <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <p class="footer-logo">Biz<span>Vext</span></p>
+        <p class="footer-tag">Business × Vector × NEXT</p>
+        <p class="footer-tag strong">経営のベクトルを、次の一手へ。</p>
+      </div>
+      <nav class="footer-links" aria-label="フッターリンク">
+        <a id="footer-restep" href="#">RE:STEP</a>
+        <a id="footer-seize" href="#">Seize</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>運営：合同会社フィールネクスト　© Feelnext LLC</span>
+      <div class="footer-legal-links">
+        <button type="button" class="footer-company-btn" id="open-company-modal" aria-haspopup="dialog" aria-controls="company-modal">運営会社について</button>
+        <!-- 将来的にリンクを追加する場合はここに <a> を追加してください（例：会社概要、特定商取引法に基づく表記） -->
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="company-modal" role="dialog" aria-modal="true" aria-labelledby="company-modal-title">
+  <div class="modal-box">
+    <button type="button" class="modal-close" id="close-company-modal" aria-label="閉じる">×</button>
+    <h2 id="company-modal-title">運営会社について</h2>
+    <table class="modal-table">
+      <tbody>
+        <tr>
+          <th scope="row">事業者名</th>
+          <td>合同会社フィールネクスト</td>
+        </tr>
+        <tr>
+          <th scope="row">運営責任者</th>
+          <td>小林大二</td>
+        </tr>
+        <tr>
+          <th scope="row">所在地</th>
+          <td>長野県小諸市平原487-1</td>
+        </tr>
+        <tr>
+          <th scope="row">連絡先</th>
+          <td><a href="mailto:feelnext.llc@gmail.com">feelnext.llc@gmail.com</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  // すべてのRE:STEP / Seizeリンクはここを変更するだけで一括更新できます
+  const LINKS = {
+    restep: "#",
+    seize: "#"
+  };
+
+  document.querySelectorAll('#nav-restep, #cta-restep, #card-restep, #link-restep-1, #final-restep, #footer-restep')
+    .forEach(el => { if (el) el.href = LINKS.restep; });
+
+  document.querySelectorAll('#nav-seize, #cta-seize, #card-seize, #link-seize-1, #final-seize, #footer-seize')
+    .forEach(el => { if (el) el.href = LINKS.seize; });
+
+  // 控えめなフェードインのみ
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  }
+
+  // 運営会社モーダル
+  const companyModal = document.getElementById('company-modal');
+  const openCompanyBtn = document.getElementById('open-company-modal');
+  const closeCompanyBtn = document.getElementById('close-company-modal');
+  let lastFocused = null;
+
+  function openCompanyModal(){
+    lastFocused = document.activeElement;
+    companyModal.classList.add('is-open');
+    closeCompanyBtn.focus();
+    document.addEventListener('keydown', onModalKeydown);
+  }
+  function closeCompanyModal(){
+    companyModal.classList.remove('is-open');
+    document.removeEventListener('keydown', onModalKeydown);
+    if (lastFocused) lastFocused.focus();
+  }
+  function onModalKeydown(e){
+    if (e.key === 'Escape') closeCompanyModal();
+  }
+
+  if (openCompanyBtn) openCompanyBtn.addEventListener('click', openCompanyModal);
+  if (closeCompanyBtn) closeCompanyBtn.addEventListener('click', closeCompanyModal);
+  if (companyModal) {
+    companyModal.addEventListener('click', (e) => {
+      if (e.target === companyModal) closeCompanyModal();
+    });
+  }
+
+  // FAQ アコーディオン
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    question.addEventListener('click', () => {
+      const isOpen = item.getAttribute('data-open') === 'true';
+
+      if (isOpen) {
+        answer.style.maxHeight = null;
+        item.setAttribute('data-open', 'false');
+        question.setAttribute('aria-expanded', 'false');
+      } else {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        item.setAttribute('data-open', 'true');
+        question.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
