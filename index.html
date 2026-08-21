@@ -480,12 +480,19 @@
     border-radius: 100px;
     background: var(--teal);
     opacity: 0.55;
+    -webkit-transform: scaleX(0);
     transform: scaleX(0);
+    -webkit-transform-origin: left;
     transform-origin: left;
+    -webkit-transition: -webkit-transform 1s ease;
     transition: transform 1s ease;
+    will-change: transform;
   }
   .bar-fill--lead{ background: var(--teal); opacity: 1; }
-  .bar-fill.is-visible{ transform: scaleX(1); }
+  .bar-fill.is-visible{
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
   .bar-value{
     font-size: 12.5px;
     font-weight: 700;
@@ -1489,11 +1496,19 @@
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
+          const el = entry.target;
+          // 描画済みの状態(scaleX(0)/opacity:0)を確実にブラウザへ反映させてから
+          // is-visible を付与することで、スマホの高速スクロールでも
+          // アニメーションの開始状態が飛ばされないようにする
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              el.classList.add('is-visible');
+            });
+          });
+          io.unobserve(el);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
 
     document.querySelectorAll('.reveal, .bar-fill').forEach(el => io.observe(el));
   } else {
